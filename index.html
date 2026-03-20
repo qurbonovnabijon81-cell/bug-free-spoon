@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>My Links</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body + yulduzlar fon */
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0b0c2a;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Yulduzlar */
+body::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: transparent;
+    background-image: radial-gradient(white 1px, transparent 1px);
+    background-size: 50px 50px;
+    animation: starsMove 60s linear infinite;
+    z-index: 0;
+}
+
+/* Harakat animatsiyasi */
+@keyframes starsMove {
+    0% {transform: translate(0,0);}
+    100% {transform: translate(-50%, -50%);}
+}
+
+/* Card */
+.card {
+    position: relative;
+    z-index: 1;
+    width: 90%;
+    max-width: 400px;
+    padding: 25px;
+    border-radius: 20px;
+    background: rgba(0,0,0,0.3);
+    backdrop-filter: blur(20px);
+    text-align: center;
+    color: white;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+/* Title */
+.card h1 {
+    margin-bottom: 10px;
+}
+
+/* Subtitle */
+.card p {
+    font-size: 14px;
+    opacity: 0.7;
+    margin-bottom: 20px;
+}
+
+/* Links */
+.link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 14px;
+    margin: 10px 0;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Neon Glow Colors */
+.telegram { background: #0088cc; color: white; }
+.instagram { background: #e1306c; color: white; }
+.youtube { background: #ff0000; color: white; }
+.facebook { background: #3b5998; color: white; }
+.tiktok { background: #000000; color: white; }
+.phone { background: #28a745; color: white; }
+
+/* Neon Glow Hover */
+.link::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255,255,255,0.1);
+    transform: rotate(45deg);
+    transition: 0.5s;
+    opacity: 0;
+}
+
+.link:hover::before {
+    opacity: 1;
+    top: -25%;
+    left: -25%;
+}
+
+.link:hover {
+    box-shadow: 0 0 15px #fff, 0 0 30px #fff, 0 0 45px #fff;
+    transform: translateY(-5px);
+}
+
+/* Icon Size */
+.link i {
+    font-size: 18px;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .card {
+        padding: 20px;
+    }
+    .link {
+        font-size: 14px;
+        padding: 12px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+    <h1>Sizning Ismingiz</h1>
+    <p>@username yoki bio</p>
+
+    <a href="https://t.me/username" class="link telegram">
+        <i class="fab fa-telegram"></i> Telegram
+    </a>
+
+    <a href="https://instagram.com" class="link instagram">
+        <i class="fab fa-instagram"></i> Instagram
+    </a>
+
+    <a href="https://youtube.com" class="link youtube">
+        <i class="fab fa-youtube"></i> YouTube
+    </a>
+
+    <a href="https://facebook.com" class="link facebook">
+        <i class="fab fa-facebook"></i> Facebook
+    </a>
+
+    <a href="https://tiktok.com" class="link tiktok">
+        <i class="fab fa-tiktok"></i> TikTok
+    </a>
+
+    <a href="tel:+998901234567" class="link phone">
+        <i class="fas fa-phone"></i> +998 90 123 45 67
+    </a>
+</div>
+
+</body>
+</html>
